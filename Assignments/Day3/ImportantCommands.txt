@@ -1,0 +1,21 @@
+Terminal command that create process list table displays process id, parent process id,
+command name are as follows :
+1. ps
+2. ps aux
+3. ps auxf
+4. ps -ef
+
+Data Analysis / Manipulation (Awk)
+data.csv
+
+1. Print EmployeeName and TotalPay who has BasePay > 10000
+cat data.csv | awk '{ if($4>10000) print $2 " " $7 }'
+
+2. What is the aggregate TotalPay of employees whose jobtitle is "CAPTAIN"
+cat data.csv | grep CAPTAIN | awk '{sum+=$7} END {print sum}'
+
+3. Print JobTitle and Overtimepay who has Overtimepay is between 7000 and 10000
+cat data.csv | awk '{ if($5>7000 && $5<10000) print $3 " "$5 }'
+
+4. Print average BasePay
+cat data.csv | awk '{sum+=$4} END {print sum/NR}'
